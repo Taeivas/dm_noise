@@ -9,20 +9,21 @@ noise
 
 		Noise2D(x, y, seed = 0)
 			var
-				xi = trunc(x)
-				yi = trunc(y)
-				xf = fract(x)
-				yf = fract(y)
+				xi = floor(x)
+				yi = floor(y)
+				xf = x - xi
+				yf = y - yi
 
-				value_top_right = noise_hash(xi + 1, yi + 1, seed)
-				value_top_left = noise_hash(xi, yi + 1, seed)
-				value_bottom_right = noise_hash(xi + 1, yi, seed)
-				value_bottom_left = noise_hash(xi, yi, seed)
+
+				x0y0 = noise_hash(xi, yi, seed)
+				x0y1 = noise_hash(xi, yi + 1, seed)
+				x1y0 = noise_hash(xi + 1, yi, seed)
+				x1y1 = noise_hash(xi + 1, yi + 1, seed)
 
 				u = Fade(xf)
 				v = Fade(yf)
 
-			return Lerp(u, Lerp(v, value_bottom_left, value_top_left), Lerp(v, value_bottom_right, value_top_right))
+			return Lerp(Lerp(x0y0, x0y1, v), Lerp(x1y0, x1y1, v), u)
 
 		Noise2DWrap(x, y, seed = 0, min_x = 1, max_x = world.icon_size, min_y = 1, max_y = world.icon_size)
 			var
