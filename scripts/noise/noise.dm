@@ -15,10 +15,10 @@ noise
 				yf = y - yi
 
 
-				x0y0 = noise_hash(xi, yi, seed)
-				x0y1 = noise_hash(xi, yi + 1, seed)
-				x1y0 = noise_hash(xi + 1, yi, seed)
-				x1y1 = noise_hash(xi + 1, yi + 1, seed)
+				x0y0 = noise_hash(xi, yi, seed) * 2 - 1
+				x0y1 = noise_hash(xi, yi + 1, seed) * 2 - 1
+				x1y0 = noise_hash(xi + 1, yi, seed) * 2 - 1
+				x1y1 = noise_hash(xi + 1, yi + 1, seed) * 2 - 1
 
 				u = Fade(xf)
 				v = Fade(yf)
@@ -37,10 +37,10 @@ noise
 				y0 = NOISE_WRAP(yi, min_y, max_y)
 				y1 = NOISE_WRAP(yi + 1, min_y, max_y)
 
-				x0y0 = noise_hash(x0, y0, seed)
-				x0y1 = noise_hash(x0, y1, seed)
-				x1y0 = noise_hash(x1, y0, seed)
-				x1y1 = noise_hash(x1, y1, seed)
+				x0y0 = noise_hash(x0, y0, seed) * 2 - 1
+				x0y1 = noise_hash(x0, y1, seed) * 2 - 1
+				x1y0 = noise_hash(x1, y0, seed) * 2 - 1
+				x1y1 = noise_hash(x1, y1, seed) * 2 - 1
 
 				u = Fade(xf)
 				v = Fade(yf)
