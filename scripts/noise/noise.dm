@@ -14,10 +14,10 @@ noise
 				xf = fract(x)
 				yf = fract(y)
 
-				value_top_right = noise_hash(xi + 1, yi + 1, seed) * 2 - 1
-				value_top_left = noise_hash(xi, yi + 1, seed) * 2 - 1
-				value_bottom_right = noise_hash(xi + 1, yi, seed) * 2 - 1
-				value_bottom_left = noise_hash(xi, yi, seed) * 2 - 1
+				value_top_right = noise_hash(xi + 1, yi + 1, seed)
+				value_top_left = noise_hash(xi, yi + 1, seed)
+				value_bottom_right = noise_hash(xi + 1, yi, seed)
+				value_bottom_left = noise_hash(xi, yi, seed)
 
 				u = Fade(xf)
 				v = Fade(yf)
